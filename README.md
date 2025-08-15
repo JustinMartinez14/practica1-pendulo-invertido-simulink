@@ -296,49 +296,6 @@ fprintf('=================================================\n');
 
 fprintf('🎯 ¡Listo para simular el péndulo invertido!\n');
 
-Instrucciones de Uso
-1. Instalación
-
-Abre MATLAB
-
-Copia y pega el código anterior en un nuevo script
-
-Guarda como pendulo_invertido_simulink_final.m
-
-2. Ejecución
-% En la Command Window de MATLAB:
-pendulo_invertido_simulink_final
-
-3. Simulación
-
-Se abrirá automáticamente Simulink con el modelo
-
-Presiona el botón RUN (▶️) para simular
-
-Observa los resultados en los Scopes
-
-Resultados Esperados
-
-Scope_Posicion: Muestra la evolución de la posición del carro
-
-Scope_Angulo: Muestra la evolución del ángulo del péndulo
-
-Las variables se guardan en xc_out y alpha_out para análisis posterior
-
-Estructura del Modelo
-
-El diagrama implementa:
-
-Bloques trigonométricos para sin(α), cos(α), sin²(α)
-
-Denominador común compartido entre ambas ecuaciones
-
-Numeradores separados para cada ecuación diferencial
-
-Dobles integradores para obtener velocidades y posiciones
-
-Realimentaciones que acoplan las dos ecuaciones
-
 Autor: Justin Axel Martinez Rocha
 Fecha: 15/08/2025
 Universidad de Guadalajara - CUCEI
