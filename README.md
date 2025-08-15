@@ -1,32 +1,48 @@
-# Práctica 1 - Péndulo Invertido en Simulink
+Práctica 1 - Péndulo Invertido en Simulink
 
-**Materia:** Seminario de Modelado y Simulación de Sistemas  
-**Institución:** Universidad de Guadalajara - CUCEI  
-**Programa:** Ingeniería en Robótica  
+Materia: Seminario de Modelado y Simulación de Sistemas
+Institución: Universidad de Guadalajara - CUCEI
+Programa: Ingeniería en Robótica
 
-## Descripción
+Descripción
+
 Implementación en Simulink de las ecuaciones diferenciales del sistema de péndulo invertido mediante representación a bloques.
 
+Ecuaciones Implementadas
+Ecuación para xc_ddot (aceleración del carro):
+xc_ddot = [(Ip + Mp*lp²)*Fc + Mp²*lp²*g*cos(α)*sin(α) - (Ip + Mp*lp²)*Beq*xc_dot] / denominador
 
-## Parámetros del Sistema
-- Momento de inercia (Ip): 0.0079 kg·m²
-- Masa del carro (Mc): 0.7031 kg
-- Masa del péndulo (Mp): 0.23 kg
-- Longitud del péndulo (lp): 0.3302 m
+Ecuación para alpha_ddot (aceleración angular):
+alpha_ddot = [(Mc + Mp)*Mp*g*lp*sin(α) - (Mc + Mp)*Bp*alpha_dot] / denominador
 
-## Cómo ejecutar
-1. Abrir MATLAB
-2. Ejecutar: `pendulo_invertido_simulink_final`
-3. Simular el modelo en Simulink
+Denominador común:
+denominador = (Mc + Mp)*Ip + Mc*Mp*lp² + Mp²*lp²*sin²(α)
 
-## Condiciones Iniciales
-- Ángulo inicial: 1°
-- Posición inicial: 0 m
-- Velocidades iniciales: 0
+Parámetros del Sistema
 
-##codigo
+Momento de inercia (Ip): 0.0079 kg·m²
+
+Masa del carro (Mc): 0.7031 kg
+
+Masa del péndulo (Mp): 0.23 kg
+
+Longitud del péndulo (lp): 0.3302 m
+
+Amortiguamiento equivalente (Beq): 4.3 N·s/m
+
+Amortiguamiento del péndulo (Bp): 0.0024 N·m·s/rad
+
+Condiciones Iniciales
+
+Ángulo inicial: 1°
+
+Posición inicial: 0 m
+
+Velocidades iniciales: 0
+
+Código MATLAB Completo
 %% PRÁCTICA 1 - REPRESENTACIÓN A BLOQUES EN SIMULINK
-%% Sistema de Péndulo Invertido 
+%% Sistema de Péndulo Invertido - VERSIÓN FINAL CORREGIDA
 % Seminario de Modelado y Simulación de Sistemas
 % Universidad de Guadalajara - CUCEI
 
@@ -279,3 +295,50 @@ fprintf('3. Los resultados aparecerán en los Scopes\n');
 fprintf('=================================================\n');
 
 fprintf('🎯 ¡Listo para simular el péndulo invertido!\n');
+
+Instrucciones de Uso
+1. Instalación
+
+Abre MATLAB
+
+Copia y pega el código anterior en un nuevo script
+
+Guarda como pendulo_invertido_simulink_final.m
+
+2. Ejecución
+% En la Command Window de MATLAB:
+pendulo_invertido_simulink_final
+
+3. Simulación
+
+Se abrirá automáticamente Simulink con el modelo
+
+Presiona el botón RUN (▶️) para simular
+
+Observa los resultados en los Scopes
+
+Resultados Esperados
+
+Scope_Posicion: Muestra la evolución de la posición del carro
+
+Scope_Angulo: Muestra la evolución del ángulo del péndulo
+
+Las variables se guardan en xc_out y alpha_out para análisis posterior
+
+Estructura del Modelo
+
+El diagrama implementa:
+
+Bloques trigonométricos para sin(α), cos(α), sin²(α)
+
+Denominador común compartido entre ambas ecuaciones
+
+Numeradores separados para cada ecuación diferencial
+
+Dobles integradores para obtener velocidades y posiciones
+
+Realimentaciones que acoplan las dos ecuaciones
+
+Autor: Justin Axel Martinez Rocha
+Fecha: 15/08/2025
+Universidad de Guadalajara - CUCEI
