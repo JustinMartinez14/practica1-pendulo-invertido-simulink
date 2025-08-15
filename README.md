@@ -269,32 +269,6 @@ end
 %% Guardar el modelo
 save_system(model_name);
 
-%% Mensaje de finalización
-fprintf('=================================================\n');
-fprintf('✅ Modelo de Simulink creado exitosamente!\n');
-fprintf('Nombre del modelo: %s\n', model_name);
-fprintf('=================================================\n');
-fprintf('PARÁMETROS DEL SISTEMA:\n');
-fprintf('- Momento de inercia (Ip): %.4f kg*m²\n', Ip);
-fprintf('- Masa del carro (Mc): %.4f kg\n', Mc);
-fprintf('- Masa del péndulo (Mp): %.4f kg\n', Mp);
-fprintf('- Longitud del péndulo (lp): %.4f m\n', lp);
-fprintf('- Amortiguamiento equiv. (Beq): %.1f N*s/m\n', Beq);
-fprintf('- Amortiguamiento péndulo (Bp): %.4f N*m*s/rad\n', Bp);
-fprintf('=================================================\n');
-fprintf('CONDICIONES INICIALES:\n');
-fprintf('- Ángulo inicial: %.1f grados\n', alpha_0 * 180/pi);
-fprintf('- Posición inicial: %.1f m\n', xc_0);
-fprintf('- Velocidad angular inicial: %.1f rad/s\n', alpha_dot_0);
-fprintf('- Velocidad inicial: %.1f m/s\n', xc_dot_0);
-fprintf('=================================================\n');
-fprintf('INSTRUCCIONES PARA SIMULAR:\n');
-fprintf('1. Presiona el botón RUN (▶️) en Simulink\n');
-fprintf('2. O ejecuta en MATLAB: sim(''%s'')\n', model_name);
-fprintf('3. Los resultados aparecerán en los Scopes\n');
-fprintf('=================================================\n');
-
-fprintf('🎯 ¡Listo para simular el péndulo invertido!\n');
 
 Autor: Justin Axel Martinez Rocha
 Fecha: 15/08/2025
